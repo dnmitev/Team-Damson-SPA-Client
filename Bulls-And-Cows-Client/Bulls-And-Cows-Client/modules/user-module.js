@@ -9,12 +9,13 @@ define(['requester', 'config', 'storage', 'cryptojs'], function (requester, conf
         var data = {
             username: email,
             password: CryptoJS.SHA1(password).toString(),
-            grant_type:  'password'
+            grant_type: 'password'
         };
 
-        return requester.postJSON(url + "Token", data)
+        return requester.postJSON(url + "Token", data, 'application/x-www-form-urlencoded')
             .then(function (result) {
-                storager.set('token', result.data.token);
+                console.log(result);
+                storager.set('token', result.data.access_token);
                 storager.set('username', username);
             });
     }
@@ -26,14 +27,14 @@ define(['requester', 'config', 'storage', 'cryptojs'], function (requester, conf
 //"LastName": "sample string 5",
 //"AvatarUrl": "sample string 6"
 
-    function register(email, password) {
+    function register(email, password, firstName, lastName, avatarUrl) {
         var data = {
             email: email,
             password: CryptoJS.SHA1(password).toString(),
             confirmPassword: CryptoJS.SHA1(password).toString(),
-            FirstName: "sample string 4",
-            LastName: "sample string 5",
-            AvatarUrl: "sample string 6"
+            FirstName: firstName,
+            LastName: lastName,
+            AvatarUrl: avatarUrl
         };
 
         return requester.postJSON(url + 'api/Account/Register', data)

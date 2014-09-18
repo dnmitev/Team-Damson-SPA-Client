@@ -11,16 +11,19 @@ define(['jquery', 'modules'], function ($, modules) {
 
                     var $this = $(this),
                         username = $('#register-username').val(),
-                        password = $('#register-password').val();
+                        password = $('#register-password').val(),
+                        firstName = $('#first-name').val(),
+                        lastName = $('#last-name').val(),
+                        avatarUrl = $('#avatar-url').val();
 
                     if (!isValidUsername(username)) {
                         alert('Invalid username.');
                         return;
                     }
 
-                    modules.user.register(username, password)
+                    modules.user.register(username, password, firstName, lastName, avatarUrl)
                         .then(function () {
-                            getUserInfo();
+                            getUserInfo(username);
                         });
                 });
             });
@@ -38,8 +41,9 @@ define(['jquery', 'modules'], function ($, modules) {
         return true;
     }
 
-    function getUserInfo() {
+    function getUserInfo(username) {
         $('#user-data').show();
+        $('#current-user').htmlusername
     }
 
     return {

@@ -2,7 +2,7 @@
 define(['jquery', 'q'], function ($, Q) {
     "use strict";
 
-    function makeRequest(url, type, data) {
+    function makeRequest(url, type, data, contentType) {
         var deferred = Q.defer();
 
         //if (data) {
@@ -13,7 +13,7 @@ define(['jquery', 'q'], function ($, Q) {
             url: url,
             type: type,
             data: data,
-            //contentType: "application/json",
+            contentType: contentType,
             success: function (data, textStatus, xhr) {
                 deferred.resolve({ data: data, textStatus: textStatus, xhr: xhr });
             },
@@ -28,9 +28,9 @@ define(['jquery', 'q'], function ($, Q) {
     function makeRequestWithHeaders(url, type, token, data) {
         var deferred = Q.defer();
 
-        if (data) {
-            data = JSON.stringify(data);
-        }
+        //if (data) {
+        //    data = JSON.stringify(data);
+        //}
 
         $.ajax({
             url: url,
@@ -51,8 +51,8 @@ define(['jquery', 'q'], function ($, Q) {
         return makeRequest(url, 'GET');
     }
 
-    function makePostRequest(url, data) {
-        return makeRequest(url, 'POST', data);
+    function makePostRequest(url, data, contentType) {
+        return makeRequest(url, 'POST', data,contentType);
     }
 
     function putRequest(url, token) {
