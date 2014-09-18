@@ -5,9 +5,7 @@ define(['jquery', 'modules'], function ($, modules) {
     function loginUser() {
         modules.view.load('login')
             .then(function () {
-                $('#login-form').on('click', '#login-btn', function (ev) {
-                    ev.preventDefault();
-
+                $('#login-form').on('click', '#login-btn', function () {
                     var $this = $(this),
                         username = $('#login-username').val(),
                         password = $('#login-password').val();

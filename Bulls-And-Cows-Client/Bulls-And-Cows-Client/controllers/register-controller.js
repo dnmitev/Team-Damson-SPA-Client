@@ -43,7 +43,7 @@ define(['jquery', 'modules'], function ($, modules) {
 
     function getUserInfo(username) {
         $('#user-data').show();
-        $('#current-user').html(username);
+        $('#current-user').htmlusername
     }
 
     return {

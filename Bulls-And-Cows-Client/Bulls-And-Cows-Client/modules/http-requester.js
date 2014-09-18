@@ -13,7 +13,7 @@ define(['jquery', 'q'], function ($, Q) {
             url: url,
             type: type,
             data: data,
-            //contentType: contentType,
+            contentType: contentType,
             success: function (data, textStatus, xhr) {
                 deferred.resolve({ data: data, textStatus: textStatus, xhr: xhr });
             },

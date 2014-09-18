@@ -8,12 +8,11 @@ define(['requester', 'config', 'storage', 'cryptojs'], function (requester, conf
     function login(email, password) {
         var data = {
             username: email,
-            password: password,
+            password: CryptoJS.SHA1(password).toString(),
+            grant_type: 'password'
         };
 
-        var dataString = "grant_type=password&username=" + data['username'] + "&password=" + data['password'];
-
-        return requester.postJSON(url + "Token", dataString, 'application/x-www-form-urlencoded; charset=UTF-8')
+        return requester.postJSON(url + "Token", data, 'application/x-www-form-urlencoded')
             .then(function (result) {
                 console.log(result);
                 storager.set('token', result.data.access_token);
@@ -21,12 +20,12 @@ define(['requester', 'config', 'storage', 'cryptojs'], function (requester, conf
             });
     }
 
-    //"Email": "sample string 1",
-    //"Password": "sample string 2",
-    //"ConfirmPassword": "sample string 3",
-    //"FirstName": "sample string 4",
-    //"LastName": "sample string 5",
-    //"AvatarUrl": "sample string 6"
+//"Email": "sample string 1",
+//"Password": "sample string 2",
+//"ConfirmPassword": "sample string 3",
+//"FirstName": "sample string 4",
+//"LastName": "sample string 5",
+//"AvatarUrl": "sample string 6"
 
     function register(email, password, firstName, lastName, avatarUrl) {
         var data = {
