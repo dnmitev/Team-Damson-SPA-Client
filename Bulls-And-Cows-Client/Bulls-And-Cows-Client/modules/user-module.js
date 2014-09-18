@@ -17,7 +17,7 @@ define(['requester', 'config', 'storage', 'cryptojs'], function (requester, conf
             .then(function (result) {
                 console.log(result);
                 storager.set('token', result.data.access_token);
-                storager.set('username', username);
+                storager.set('username', result.username);
             });
     }
 
