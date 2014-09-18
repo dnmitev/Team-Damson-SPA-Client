@@ -1,0 +1,54 @@
+﻿<div id="home">
+    <header>
+        <h1>
+            Crowd Share – Web Client
+        </h1>
+        <h2>
+            Practical exam JavaScript Applications - 29 July 2014
+        </h2>
+        <p class="important">
+            You should run this code using a server.
+        </p>
+    </header>
+    <section id="posts">
+        <div id="posts-container" data-template="posts-template"></div>
+        <aside id="posts-control-panel">
+            <fieldset>
+                <legend>Sorting:</legend>
+                <ul>
+                    <li>
+                        <button id="sort-by-date-btn" type="button">By Date</button>
+                    </li>
+                    <li>
+                        <button id="sort-by-title-btn" type="button">By Title</button>
+                    </li>
+                    <li>
+                        <button id="sort-asc-desc-btn" type="button">Asc/Desc</button>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>Paging options:</legend>
+                <label for="posts-per-page-input">Posts per page:</label>
+                <input type="number" min="0" max="100" value="10" id="posts-per-page-input"/>
+            </fieldset>
+        </aside>
+    </section>
+</div>
+
+<script id="posts-template" type="text/x-mustache-template">
+    <div>
+        <dl>
+            <dt class="post-title">{{{title}}}</dt>
+            <dd>
+                <p class="post-body">
+                    {{{body}}}
+                </p>
+                <p class="info">
+                    by <span class="username">{{{user.username}}}</span>
+                    posted on <span class="post-date">{{{postDate}}}</span>
+                </p>
+            </dd>
+        </dl>
+    </div>
+</script>

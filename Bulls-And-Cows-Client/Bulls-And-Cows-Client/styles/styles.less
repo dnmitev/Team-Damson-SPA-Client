@@ -1,0 +1,101 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
+    color: yellowgreen;
+}
+
+#nav {
+    list-style: none;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        border: 1px solid yellowgreen;
+        border-radius: 10px;
+
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px;
+            margin: 10px;
+            color: yellowgreen;
+        }
+
+        &:hover {
+            background: grey;
+        }
+    }
+}
+
+#posts {
+    position: relative;
+    border: 1px solid yellowgreen;
+    border-radius: 15px;
+}
+
+#posts-container {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    padding: 10px;
+
+    .post-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        font-family: Calibri;
+        color: orange;
+    }
+
+    .post-body {
+        font-style: italic;
+        font-size: 0.9em;
+    }
+
+    .info {
+        text-align: right;
+    }
+
+    .username {
+        color: blue;
+        font-weight: bold;
+    }
+
+    .post-date {
+        color: blue;
+        font-style: italic;
+    }
+}
+
+#posts-control-panel {
+    width: 25%;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    fieldset {
+        border: 1px solid yellowgreen;
+        border-radius: 10px;
+
+        button {
+            border: 1px solid blue;
+            padding: 5px;
+            background: none;
+            border-radius: 5px;
+            color: blue;
+        }
+
+        ul {
+            list-style: none;
+        }
+    }
+}
+
+#user-data {
+    display: none;
+}
+
+.important {
+    color: red;
+}
