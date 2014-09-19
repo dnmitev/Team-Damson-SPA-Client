@@ -4,7 +4,8 @@ define(function () {
 
     return {
         // main api URL
-        apiURL: 'http://localhost:13851/',
+        //apiURL: 'http://localhost:13851/',
+        apiURL: 'http://bullsandcows-3.apphb.com/',
 
         // main api html container
         mainCointainer: '#main-container',
